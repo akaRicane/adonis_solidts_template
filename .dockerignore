@@ -1,0 +1,11 @@
+.git/
+.vscode/
+build/
+node_modules/
+
+.env
+
+components.json
+deploy.sh
+local_build.sh
+Dockerfile
