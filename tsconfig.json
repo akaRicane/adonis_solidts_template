@@ -1,0 +1,18 @@
+{
+  "extends": "@adonisjs/tsconfig/tsconfig.app.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./build",
+    "paths": {
+      "#config/*": ["./config/*.js"],
+      "#exceptions/*": ["./app/exceptions/*.js"],
+      "#middleware/*": ["./app/middleware/*.js"],
+      "#start/*": ["./start/*.js"],
+      "#tests/*": ["./tests/*.js"],
+      "#components/*": ["./components/*"],
+      "#shadcn/*": ["./inertia/components/ui/*"],
+      "#types/*": ["./inertia/types/*"]
+    }
+  },
+  "exclude": ["./inertia/**/*", "node_modules", "build"]
+}

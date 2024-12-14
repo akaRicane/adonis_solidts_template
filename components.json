@@ -1,0 +1,16 @@
+{
+  "$schema": "https://shadcn-solid.com/schema.json",
+  "tailwind": {
+    "config": "tailwind.config.cjs",
+    "css": {
+      "path": "inertia/css/app.css",
+      "variable": true
+    },
+    "color": "slate",
+    "prefix": ""
+  },
+  "alias": {
+    "component": "inertia/shadcn/",
+    "cn": "~/shadcn/lib"
+  }
+}
