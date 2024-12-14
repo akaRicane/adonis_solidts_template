@@ -1,0 +1,3 @@
+- clone repository: `git clone https://github.com/akaRicane/adonis_solidts_template.git`
+- install dependencies: `pnpm install`
+- generate APP KEY: `node ace generate:key`
