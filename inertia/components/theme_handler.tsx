@@ -1,8 +1,8 @@
 import { BsMoonFill, BsSunFill } from 'solid-icons/bs'
 import { Component, createSignal, onMount } from 'solid-js'
-import { Theme } from '~/app/enums'
-import { DEFAULT_ICON_SIZE } from '~/app/globals'
 import { Button } from '~/shadcn/ui/button'
+import { Theme } from '~/utils/enums'
+import { DEFAULT_ICON_SIZE } from '~/utils/globals'
 
 const getSystemTheme = (): string => {
   const preference = localStorage.getItem('theme')

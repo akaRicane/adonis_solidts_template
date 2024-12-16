@@ -1,4 +1,5 @@
 import { Component, JSXElement } from 'solid-js'
+import LangHandler from '~/components/lang_handler'
 import ThemeHandler from '~/components/theme_handler'
 import { Button } from '~/shadcn/ui/button'
 
@@ -10,9 +11,10 @@ const AppLayout: Component<AppLayoutProps> = (props) => {
   return (
     <>
       <div class="w-full min-h-screen flex flex-col justify-start items-center">
-        <div class="w-full text-center">
+        <div class="w-full flex flex-row items-center text-center">
           <span>app layout header</span>
           <ThemeHandler />
+          <LangHandler />
         </div>
         {props.children}
         <div class="w-full flex flex-col text-center">
