@@ -1,5 +1,4 @@
 import { Component, createSignal, onMount } from 'solid-js'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/shadcn/ui/select'
 import { DEFAULT_CLIENT_LOCALE } from '~/utils/globals'
 import { getAvailableLocales, getClientLocale, updateClientLocale } from '~/utils/lang'
 
@@ -10,25 +9,18 @@ const LangHandler: Component<{}> = () => {
     getClientLocale().then(setClientLocale)
   })
 
+  const handleLocaleChange = async (selectedLanguage: string): Promise<void> => {
+    setClientLocale(selectedLanguage)
+    await updateClientLocale(selectedLanguage)
+    return window.location.reload()
+  }
+
   return (
-    <>
-      <Select
-        options={getAvailableLocales()}
-        defaultValue={clientLocale()}
-        itemComponent={(props) => <SelectItem item={props.item}>{props.item.rawValue}</SelectItem>}
-        class=""
-      >
-        <SelectTrigger>
-          <SelectValue<string>>
-            {(state) => {
-              updateClientLocale(state.selectedOption())
-              return state.selectedOption()
-            }}
-          </SelectValue>
-        </SelectTrigger>
-        <SelectContent />
-      </Select>
-    </>
+    <select value={clientLocale()} onChange={(e) => handleLocaleChange(e.currentTarget.value)}>
+      {getAvailableLocales().map((locale) => (
+        <option value={locale}>{locale}</option>
+      ))}
+    </select>
   )
 }
 

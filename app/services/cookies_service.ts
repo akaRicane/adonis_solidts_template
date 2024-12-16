@@ -6,8 +6,9 @@ export default class CookiesService {
     return Promise.resolve(session.get(name)) || (await this.setCookie(session, name, defaultValue))
   }
 
-  async setCookie(session: Session, name: string, value: CookieValue): Promise<void> {
+  async setCookie(session: Session, name: string, value: CookieValue): Promise<CookieValue> {
     session.put(name, value)
-    return await session.commit()
+    await session.commit()
+    return Promise.resolve(value)
   }
 }

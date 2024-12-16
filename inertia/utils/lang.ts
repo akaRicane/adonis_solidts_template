@@ -12,8 +12,9 @@ export const getAvailableLocales = (): string[] => {
 }
 
 export const getClientLocale = async (): Promise<CookieValue> => {
-  console.log('getClientLocale', await getCookie('locale'))
-  return (await getCookie('locale')) || (await updateClientLocale(DEFAULT_CLIENT_LOCALE))
+  const clientLocale =
+    (await getCookie('locale')) || (await updateClientLocale(DEFAULT_CLIENT_LOCALE))
+  return clientLocale
 }
 
 export const updateClientLocale = async (locale: string): Promise<CookieValue> => {
