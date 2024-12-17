@@ -44,9 +44,10 @@ const ThemeHandler: Component<ThemeHandlerProps> = (props) => {
     <Button
       onClick={handleThemeSwitch}
       class={cn(
-        'bg-background text-foreground hover:bg-foreground hover:text-background',
+        'bg-background text-foreground h-full hover:bg-foreground hover:text-background',
         props.class
       )}
+      size={'icon'}
     >
       {theme() === Theme.Light ? (
         <BsSunFill size={props.iconSize || DEFAULT_ICON_SIZE} />
