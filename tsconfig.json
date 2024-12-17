@@ -9,9 +9,9 @@
       "#middleware/*": ["./app/middleware/*.js"],
       "#start/*": ["./start/*.js"],
       "#tests/*": ["./tests/*.js"],
-      "#components/*": ["./components/*"],
       "#shadcn/*": ["./inertia/components/ui/*"],
-      "#types/*": ["./inertia/types/*"]
+      "#types/*": ["./inertia/types/*"],
+      "#utils/*": ["./inertia/utils/*"]
     }
   },
   "exclude": ["./inertia/**/*", "node_modules", "build"]

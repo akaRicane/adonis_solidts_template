@@ -1,19 +1,20 @@
-import { Link } from 'inertia-adapter-solid'
 import { Component } from 'solid-js'
 import PageLayout from '~/app/page_layout'
-import { Button } from '~/shadcn/ui/button'
+import LinkNavigate from '~/components/links/link_navigate'
+import type { PageProps } from '~/types/app'
+import { translate } from '~/utils/lang'
 
-const Home: Component = () => {
+interface HomeProps {}
+
+const Home: Component<PageProps & HomeProps> = (props) => {
   return (
-    <PageLayout metaTitle="Home">
+    <PageLayout
+      metaTitle={translate(props.translations, 'home.meta_title')}
+      translations={props.translations}
+    >
       <div class="w-full h-screen flex flex-col justify-center items-center space-y-4">
-        <span>Welcome to your Adonis x Solid.ts template</span>
-
-        <Button variant={'outline'} class="hover:bg-purple-500 hover:text-white">
-          <Link href="/test" class="w-full h-full">
-            go to test page
-          </Link>
-        </Button>
+        <span>{translate(props.translations, 'home.hero_content')}</span>
+        <LinkNavigate href="/test" text={translate(props.translations, 'common.goto_testpage')} />
       </div>
     </PageLayout>
   )
