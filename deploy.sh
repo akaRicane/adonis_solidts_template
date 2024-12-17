@@ -1,3 +1,8 @@
+if [ -z "$DOCKER_IMAGE_NAME" ] || [ -z "$DOCKER_PLATFORM_TARGET" ]; then
+  echo "Error: DOCKER_IMAGE_NAME and/or DOCKER_PLATFORM_TARGET are not set in .env"
+  exit 1
+fi
+
 echo "Creating .env.production"
 cp .env .env.production
 sed -i '' 's/^NODE_ENV=.*/NODE_ENV=production/' .env.production
