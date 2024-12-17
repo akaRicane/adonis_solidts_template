@@ -1,32 +1,23 @@
 import { Component, JSXElement } from 'solid-js'
-import LangHandler from '~/components/lang_handler'
-import ThemeHandler from '~/components/theme_handler'
-import { Button } from '~/shadcn/ui/button'
+import LinkAuthor from '~/components/links/link_author'
+import type { TranslationsRecord } from '~/types/lang'
+import { translate } from '~/utils/lang'
 
 interface AppLayoutProps {
   children: JSXElement
+  translations: TranslationsRecord
 }
 
 const AppLayout: Component<AppLayoutProps> = (props) => {
   return (
     <>
       <div class="w-full min-h-screen flex flex-col justify-start items-center">
-        <div class="w-full flex flex-row items-center text-center">
-          <span>app layout header</span>
-          <ThemeHandler />
-          <LangHandler />
+        <div class="w-full flex flex-row justify-center items-center text-center">
+          <span class="text-sm">{translate(props.translations, 'common.app_layout_header')}</span>
         </div>
         {props.children}
-        <div class="w-full flex flex-col text-center">
-          app layout footer{' '}
-          <span>
-            Made with 💜 by{' '}
-            <Button variant={'outline'} class="hover:text-white hover:bg-purple-500">
-              <a href="https://ricane.art" target="_blank" class="w-full h-full">
-                ricane.dev
-              </a>
-            </Button>
-          </span>
+        <div class="w-full flex flex-col items-center justify-center text-sm *:text-sm text-center">
+          {translate(props.translations, 'common.app_layout_footer')} <LinkAuthor />
         </div>
       </div>
     </>

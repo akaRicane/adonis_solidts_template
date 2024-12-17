@@ -7,9 +7,10 @@
 |
 */
 
-const HomeController = () => import('#controllers/home_controller')
+const HomePageController = () => import('#controllers/homepage_controller')
+const TestPageController = () => import('#controllers/testpage_controller')
 
 import router from '@adonisjs/core/services/router'
 
-router.get('/', [HomeController, 'index']).as('home')
-router.on('/test').renderInertia('test/test')
+router.get('/', [HomePageController, 'index']).as('home')
+router.get('/test', [TestPageController, 'index']).as('test')

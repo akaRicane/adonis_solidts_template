@@ -5,6 +5,7 @@ import { resolvePageComponent } from '@adonisjs/inertia/helpers'
 import { createInertiaApp } from 'inertia-adapter-solid'
 import { render } from 'solid-js/web'
 import AppLayout from '~/app/app_layout'
+import type { TranslationsRecord } from '~/types/lang'
 import '../css/app.css'
 
 createInertiaApp({
@@ -15,9 +16,11 @@ createInertiaApp({
   },
 
   setup({ el, App, props }) {
+    const translations: TranslationsRecord =
+      (props.initialPage.props.translations as TranslationsRecord) || ({} as TranslationsRecord)
     render(
       () => (
-        <AppLayout>
+        <AppLayout translations={translations}>
           <App {...props} />
         </AppLayout>
       ),

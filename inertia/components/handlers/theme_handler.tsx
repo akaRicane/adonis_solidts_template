@@ -1,5 +1,6 @@
 import { BsMoonFill, BsSunFill } from 'solid-icons/bs'
 import { Component, createSignal, onMount } from 'solid-js'
+import { cn } from '~/shadcn/lib'
 import { Button } from '~/shadcn/ui/button'
 import { Theme } from '~/utils/enums'
 import { DEFAULT_ICON_SIZE } from '~/utils/globals'
@@ -18,7 +19,7 @@ const saveThemePreference = (theme: string) => {
 }
 
 interface ThemeHandlerProps {
-  style?: string
+  class?: string
   iconSize?: number
 }
 
@@ -40,7 +41,13 @@ const ThemeHandler: Component<ThemeHandlerProps> = (props) => {
   }
 
   return (
-    <Button onClick={handleThemeSwitch} class={props.style || ''}>
+    <Button
+      onClick={handleThemeSwitch}
+      class={cn(
+        'bg-background text-foreground hover:bg-foreground hover:text-background',
+        props.class
+      )}
+    >
       {theme() === Theme.Light ? (
         <BsSunFill size={props.iconSize || DEFAULT_ICON_SIZE} />
       ) : (

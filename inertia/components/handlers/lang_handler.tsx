@@ -16,7 +16,11 @@ const LangHandler: Component<{}> = () => {
   }
 
   return (
-    <select value={clientLocale()} onChange={(e) => handleLocaleChange(e.currentTarget.value)}>
+    <select
+      value={clientLocale()}
+      onChange={(e) => handleLocaleChange(e.currentTarget.value)}
+      class="bg-background text-foreground"
+    >
       {getAvailableLocales().map((locale) => (
         <option value={locale}>{locale}</option>
       ))}
